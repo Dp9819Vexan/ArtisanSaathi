@@ -813,13 +813,13 @@
                                     <div class="platform-logo">
                                         <i class="fab fa-amazon"></i>
                                     </div>
-                                    <div>Amazon Karigar</div>
+                                    <div>Amazon </div>
                                 </div>
                                 <div class="platform-option" data-platform="flipkart">
                                     <div class="platform-logo">
                                         <i class="fas fa-shopping-cart"></i>
                                     </div>
-                                    <div>Flipkart Samarth</div>
+                                    <div>Flipkart </div>
                                 </div>
                                 <div class="platform-option" data-platform="etsy">
                                     <div class="platform-logo">
@@ -1190,7 +1190,20 @@
             // Product form submission
             productForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+                // Add this for debugging
+console.log("=== DEBUG PRODUCT UPLOAD ===");
+console.log("Product Data:", {
+    name: productName,
+    price: productPrice,
+    platforms: selectedPlatforms,
+    user: auth.currentUser
+});
+
+// Check if user is logged in
+if (!auth.currentUser) {
+    showNotification('Please login first', 'error');
+    return;
+}
                 // Get form values
                 const productName = document.getElementById('productName').value;
                 const productDescription = document.getElementById('productDescription').value;
@@ -1351,3 +1364,4 @@
     </script>
 </body>
 </html>
+
