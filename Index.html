@@ -1043,7 +1043,7 @@
                 }
             });
 
-            // Smooth scrolling for navigation links
+                       // Smooth scrolling for navigation links
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1058,6 +1058,40 @@
                         });
                     }
                 });
+            });
+
+            // Simple Product Form Handler
+            document.getElementById('simpleProductForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const productData = {
+                    name: document.getElementById('productName').value,
+                    description: document.getElementById('productDescription').value,
+                    category: document.getElementById('productCategory').value,
+                    price: document.getElementById('productPrice').value,
+                    platforms: Array.from(document.querySelectorAll('input[name="platform"]:checked')).map(cb => cb.value),
+                    artisan: auth.currentUser ? auth.currentUser.displayName : 'Unknown',
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Validate
+                if (productData.platforms.length === 0) {
+                    showNotification('Please select at least one platform', 'error');
+                    return;
+                }
+                
+                console.log('Product Submission:', productData);
+                
+                // Show success message
+                document.getElementById('formSuccess').style.display = 'block';
+                document.getElementById('simpleProductForm').reset();
+                
+                // Show notification
+                showNotification(`Product "${productData.name}" submitted successfully! Our team will contact you soon.`);
+                
+                // Scroll to success message
+                document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
