@@ -755,44 +755,95 @@
                 <div class="tab" id="logoutTab">Logout</div>
             </div>
             
-            <!-- Updated Product Form Section with Formspree -->
-            <div class="tab-content active" id="add-product">
-                <div class="product-form">
-                    <h3>List a New Product</h3>
-                    <p>Fill out the form below to list your product on multiple platforms</p>
-                    
-                    <!-- Formspree Form - REPLACE YOUR-FORMSPREE-ID with your actual Formspree form ID -->
-                    <iframe class="embedded-form-container" 
-                            src="https://formspree.io/f/YOUR-FORMSPREE-ID" 
-                            frameborder="0" 
-                            marginheight="0" 
-                            marginwidth="0">
-                        Loading…
-                    </iframe>
-                    
-                    <div style="text-align: center; margin-top: 20px;">
-                        <p>Having trouble with the form? <a href="https://formspree.io/f/mvgnowrv" target="_blank">Open in new tab</a></p>
-                    </div>
+     <!-- Updated Product Form Section -->
+<div class="tab-content active" id="add-product">
+    <div class="product-form">
+        <h3>List Your Product for Multiple Platforms</h3>
+        <p>Fill this simple form to sell on Amazon, Flipkart, Etsy & Meesho</p>
+        
+        <!-- Formspree Form with POST method -->
+        <form class="embedded-form-container" action="https://formspree.io/f/YOUR-FORMSPREE-ID" method="POST" style="padding: 20px; background: white; border-radius: 8px;">
+            <div class="form-group">
+                <label for="artisan-name">Artisan Name *</label>
+                <input type="text" id="artisan-name" name="artisan-name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Contact Email *</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="product-name">Product Name *</label>
+                <input type="text" id="product-name" name="product-name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Product Description *</label>
+                <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" class="form-control" required>
+                    <option value="">Select Category</option>
+                    <option value="clothing">Clothing & Apparel</option>
+                    <option value="jewelry">Jewelry & Accessories</option>
+                    <option value="home">Home Decor</option>
+                    <option value="pottery">Pottery & Ceramics</option>
+                    <option value="textiles">Textiles & Weaving</option>
+                    <option value="woodwork">Wood Work</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price (₹) *</label>
+                <input type="number" id="price" name="price" class="form-control" min="1" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Select Platforms *</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" name="platforms" value="amazon"> 
+                        <i class="fab fa-amazon"></i> Amazon Karigar
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" name="platforms" value="flipkart">
+                        <i class="fas fa-shopping-cart"></i> Flipkart Samarth
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" name="platforms" value="etsy">
+                        <i class="fab fa-etsy"></i> Etsy
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" name="platforms" value="meesho">
+                        <i class="fas fa-store"></i> Meesho
+                    </label>
                 </div>
             </div>
             
-            <div class="tab-content" id="my-products">
-                <h3>Your Products</h3>
-                <div class="product-list" id="userProductList">
-                    <!-- Products will be loaded here from Firebase -->
-                    <p>No products listed yet. Add your first product using the form above!</p>
-                </div>
+            <div class="form-group">
+                <label for="message">Additional Notes</label>
+                <textarea id="message" name="message" class="form-control" rows="2" placeholder="Any special requirements or notes..."></textarea>
             </div>
             
-            <div class="tab-content" id="profile">
-                <h3>Your Profile</h3>
-                <div class="product-form">
-                    <div id="profileInfo">
-                        <!-- Profile info will be loaded here -->
-                    </div>
-                </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;">
+                <i class="fas fa-paper-plane"></i> Submit Product for Listing
+            </button>
+            
+            <div style="text-align: center; margin-top: 20px; color: #666;">
+                <p>Our team will contact you within 24 hours to help with product photography and listing setup.</p>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
     </section>
 
     <!-- Footer -->
@@ -1097,4 +1148,5 @@
     </script>
 </body>
 </html>
+
 
